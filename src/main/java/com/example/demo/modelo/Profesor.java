@@ -2,6 +2,9 @@ package com.example.demo.modelo;
 
 import java.time.LocalDateTime;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Profesor {
 
 	private String nombre;
