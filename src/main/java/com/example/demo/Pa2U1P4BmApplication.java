@@ -51,7 +51,7 @@ public class Pa2U1P4BmApplication implements CommandLineRunner{
 				for(Estudiante estu: reporte) {
 					System.out.println(estu);
 				}
-				
+				holaaaa
 				
 		//2. Actualizar
 				estu1.setApellido("Paucar");
