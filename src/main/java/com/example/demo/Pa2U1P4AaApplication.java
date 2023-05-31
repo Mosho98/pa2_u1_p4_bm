@@ -2,13 +2,17 @@ package com.example.demo;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.banco.modelo.CuentaBancaria;
+import com.example.demo.banco.modelo.Transferencia;
 import com.example.demo.banco.service.CuentaBancariaService;
 import com.example.demo.banco.service.TransferenciaService;
 
@@ -45,7 +49,7 @@ public class Pa2U1P4AaApplication implements CommandLineRunner{
 		cta2.setFechaApertura(LocalDate.now());
 		cta2.setNumero("7890");
 		cta2.setSaldo(new BigDecimal(100));
-		cta1.setTipo("A");
+		cta2.setTipo("A");
 		this.bancariaService.agregar(cta2);
 		
 		
@@ -54,8 +58,15 @@ public class Pa2U1P4AaApplication implements CommandLineRunner{
 		
 		System.out.println("SALDO ORIGEN: " + this.bancariaService.buscarPorNumero(cta1.getNumero()).getSaldo());
 		System.out.println("SALDO DESTINO: " + this.bancariaService.buscarPorNumero(cta2.getNumero()).getSaldo());
+		System.out.println("///////////////////////////////////////////////");
 		
-
+	
+		List<Transferencia> reporte = new ArrayList<>();
+		reporte = this.transferenciaService.buscarTodos();
+		
+		for(Transferencia var :reporte) {
+			System.out.println(var);
+		}
 		
 	}
 
